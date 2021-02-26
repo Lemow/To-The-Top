@@ -136,15 +136,15 @@ void GameScene::Update(float dt)
 //	camera.y -= Input::GetGamepadAxis(GamepadAxis::LeftY) * speed * dt * camera.z;
 //	camera.z += Input::GetGamepadAxis(GamepadAxis::LT) * speed/1000.0f * dt * camera.z;
 //	camera.z -= Input::GetGamepadAxis(GamepadAxis::RT) * speed/1000.0f * dt * camera.z;
-	//camera.z = std::clamp(camera.z,0.1f, 100000.0f);
+	//camera.z = glm::clamp(camera.z,0.1f, 100000.0f);
 
 	if (Input::GetKey(Key::RightMB) == KeyState::KeyHold)
-		camera.z = std::clamp(camera.z + camera.z * speed / 500.0f * dt, minZoom, maxZoom);
-	else camera.z = std::clamp(camera.z + camera.z * speed / 500.0f * dt * Input::GetGamepadAxis(GamepadAxis::RT), minZoom, maxZoom);
+		camera.z = glm::clamp(camera.z + camera.z * speed / 500.0f * dt, minZoom, maxZoom);
+	else camera.z = glm::clamp(camera.z + camera.z * speed / 500.0f * dt * Input::GetGamepadAxis(GamepadAxis::RT), minZoom, maxZoom);
 
 	if (Input::GetKey(Key::LeftMB) == KeyState::KeyHold)
-		camera.z = std::clamp(camera.z - camera.z * speed / 500.0f * dt, minZoom, maxZoom);
-	else camera.z = std::clamp(camera.z - camera.z * speed / 500.0f * dt * Input::GetGamepadAxis(GamepadAxis::LT), minZoom, maxZoom);
+		camera.z = glm::clamp(camera.z - camera.z * speed / 500.0f * dt, minZoom, maxZoom);
+	else camera.z = glm::clamp(camera.z - camera.z * speed / 500.0f * dt * Input::GetGamepadAxis(GamepadAxis::LT), minZoom, maxZoom);
 
 
 	playerVel.tv.x = speed * Input::GetGamepadAxis(GamepadAxis::LeftX);
