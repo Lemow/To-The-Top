@@ -10,8 +10,15 @@ Window* Window::Get()
 	return instance;
 }
 
-#define SET_KEY(key) case GLFW_KEY_##key: Input::SetKey(Key::##key, (KeyState)action); break
-#define SET_MB(BUTTON)
+
+
+
+#ifdef __clang__
+	#define SET_KEY(key) case GLFW_KEY_##key: Input::SetKey(Key::key, (KeyState)action); break
+#else
+	#define SET_KEY(key) case GLFW_KEY_##key: Input::SetKey(Key::##key, (KeyState)action); break
+#endif
+
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	switch (key)

@@ -1,7 +1,7 @@
 #pragma once
 #include "SparseSet.h"
 #include <cassert>
-
+#include <cstring>
 
 	template<typename Component, size_t ePerRow, bool serializable>
 	class Container : public SparseSet<ePerRow>
@@ -23,7 +23,7 @@
 
 				Dest.resize(Dest.size() + vecSize * sizeof(Component) + packed.size() * sizeof(entity_t));
 
-				char* writer = Dest.begin()._Ptr + oldSize;
+				char* writer = &*Dest.begin() + oldSize;
 				memcpy(writer, components.data(), components.size() * sizeof(Component));
 				writer += components.size() * sizeof(Component);
 				memcpy(writer, packed.data(), packed.size() * sizeof(entity_t));

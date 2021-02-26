@@ -10,8 +10,6 @@
 #include "Headers/Input.h"
 #include "Headers/Map.h"
 #include "Headers/Random.h"
-#include <conio.h>
-#include <Windows.h>
 #include "Headers/Time.h"
 #include <unordered_set>
 #include "Headers/GameLoop.h"

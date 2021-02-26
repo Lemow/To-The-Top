@@ -1,9 +1,9 @@
 #include "Time.h"
 
-std::chrono::time_point<std::chrono::steady_clock> Time::last;
-std::chrono::time_point<std::chrono::steady_clock> Time::now;
-std::chrono::time_point<std::chrono::steady_clock> Time::before;
-std::chrono::duration<float> Time::duration;
+TimePoint Time::last;
+TimePoint Time::now;
+TimePoint Time::before;
+Duration Time::duration;
 float Time::timeScale = 1.0f;
 float Time::dt = 1.0f;
 

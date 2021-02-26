@@ -1,0 +1,30 @@
+Project("RogueLike")
+{
+
+    Compiler = clang++;
+    Linker = clang++;
+
+
+    CompilerArgs
+    {
+        "-std=c++17"
+    }
+
+    IDirs
+    {
+        "deps/GLEW/include",
+        "deps/GLFW/include",
+        "deps/glm/include",
+        "deps/irrKlang/include",
+        "RogueLike/Vendor",
+        "Tabasco/src"
+        "RogueLike/"
+    }
+
+    Libs
+    {
+        "glfw", "GLEW", "GL"
+    }
+
+
+}
