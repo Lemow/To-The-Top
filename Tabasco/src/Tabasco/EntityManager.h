@@ -13,7 +13,6 @@ class Registry
 
 	template<typename Component>
 	using Container = Container<Component, EntitiesPerRow,true>;
-	using entity_t = entity_t;
 
 public:
 
@@ -69,7 +68,7 @@ public:
 
 			Container<Component>& cont = *static_cast<Container<Component>*>(pools[index].get());
 
-			assert(cont.find(entity) != cont.end() , "Entity does not contain component");
+			assert(cont.find(entity) != cont.end());
 
 			return *cont.find(entity);
 		}
@@ -86,7 +85,7 @@ public:
 		template<typename Component>
 		void Erase(entity_t entity)
 		{
-			uint32_t index = comp_info::id(nextComponent);
+			uint32_t index = comp_info::id<Component>(nextComponent);
 
 			Container<Component>& cont = *static_cast<Container<Component>*>(pools[index].get());
 
@@ -126,7 +125,7 @@ public:
 			serializer.StartWrite(filePath);
 			for (auto& pool : pools)
 			{
-				serializer.WriteComponents(*pool);
+				serializer.WriteComponents<256>(*pool);
 			}
 			serializer.EndWrite();
 		}
@@ -136,7 +135,7 @@ public:
 			serializer.StartRead(filePath);
 
 			for(auto& pool : pools)
-				serializer.ReadToContainer(*pool);
+				serializer.ReadToContainer<256>(*pool);
 
 			serializer.EndRead();
 		}

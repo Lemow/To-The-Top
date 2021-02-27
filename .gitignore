@@ -5,4 +5,14 @@ Debug/
 Release/
 .vs
 *.sln
+<<<<<<< HEAD
 *.zip
+=======
+<<<<<<< HEAD
+=======
+*.vcxproj
+*.filters
+*.user
+>>>>>>> linux
+.vscode/
+>>>>>>> 2ff0e22ce87a813f68d58e3082363f37ef90b8bc

@@ -19,7 +19,7 @@ glm::vec2 SpriteSheet::GetSpriteCoords(uint32_t x, uint32_t y) const
 	return { (float)x / m_spriteCount.x, 1.0f - (float)y / m_spriteCount.y };
 }
 
-__declspec(noinline) glm::vec2 SpriteSheet::GetSpriteCoords(uint32_t spriteID) const
+glm::vec2 SpriteSheet::GetSpriteCoords(uint32_t spriteID) const
 {
 	uint32_t x = spriteID % (uint32_t)m_spriteCount.x;
 	uint32_t y = spriteID / (uint32_t)m_spriteCount.x;
